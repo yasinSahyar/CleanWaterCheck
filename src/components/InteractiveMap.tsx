@@ -1,4 +1,5 @@
-import React from 'react';
+//interactiveMap.tsx
+import React, { useEffect, useRef } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
@@ -14,22 +15,47 @@ const defaultIcon = L.icon({
   shadowSize: [41, 41],
 });
 
-const InteractiveMap: React.FC = () => {
-  // Define position as a LatLngTuple (an array with exactly two numbers: [latitude, longitude])
-  const position: L.LatLngTuple = [60.1699, 24.9384]; // Helsinki coordinates
+interface InteractiveMapProps {
+  center: [number, number];
+  zoom: number;
+  onSelectLocation: (location: { lat: number; lng: number }) => void;
+}
+
+const InteractiveMap: React.FC<InteractiveMapProps> = ({ center, zoom, onSelectLocation }) => {
+  const mapRef = useRef<any>(null);
+
+  // Update the map view when center or zoom changes
+  useEffect(() => {
+    if (mapRef.current) {
+      mapRef.current.setView(center, zoom);
+    }
+  }, [center, zoom]);
 
   return (
-    <MapContainer center={position} zoom={13} style={{ height: '300px', width: '90%' }}>
-      <TileLayer
-        url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-        attribution='© OpenStreetMap contributors'
-      />
-      <Marker position={position} icon={defaultIcon}>
-        <Popup>
-          A sample location for water quality report.
-        </Popup>
-      </Marker>
-    </MapContainer>
+    <div className="map-container">
+      <MapContainer
+        center={center}
+        zoom={zoom}
+        style={{ height: '300px', width: '90%' }}
+        ref={mapRef}
+      >
+        <TileLayer
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
+          attribution='© OpenStreetMap contributors'
+        />
+        <Marker
+          position={center}
+          icon={defaultIcon}
+          eventHandlers={{
+            click: () => onSelectLocation({ lat: center[0], lng: center[1] }),
+          }}
+        >
+          <Popup>
+            Water quality information for this location.
+          </Popup>
+        </Marker>
+      </MapContainer>
+    </div>
   );
 };
 

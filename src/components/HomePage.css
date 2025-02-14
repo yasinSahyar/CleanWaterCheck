@@ -1,29 +1,59 @@
+/*HomePage.css*/
 .home-page {
-    text-align: center;
-    padding: 20px;
-  }
-  
-  .search-container {
-    margin: 20px 10px;
-  }
-  
-  input {
-    padding: 10px;
-    font-size: 16px;
-    margin-right: 10px;
-  }
-  
-  button {
-    padding: 10px 20px;
-    font-size: 16px;
-    cursor: pointer;
-  }
-  
-  .error {
-    color: red;
-  }
-  
-  .results {
-    margin-top: 20px;
-    text-align: left;
-  }
+  text-align: center;
+  padding: 20px;
+}
+
+.search-container {
+  margin: 20px 10px;
+}
+
+input {
+  padding: 10px;
+  font-size: 16px;
+  margin-right: 10px;
+}
+
+button {
+  padding: 10px 20px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.error {
+  color: red;
+}
+
+.results {
+  margin-top: 20px;
+  text-align: left;
+}
+
+.map-container {
+  margin: 20px auto;
+  width: 90%;
+  height: 300px;
+}
+
+.most-populous {
+  margin-top: 30px;
+  text-align: left;
+}
+
+.most-populous h2 {
+  font-size: 1.5em;
+  margin-bottom: 10px;
+}
+
+.most-populous ul {
+  list-style-type: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three columns */
+  gap: 5px; /* Reduced space between columns */
+}
+
+.most-populous li {
+  font-size: 1.1em;
+  margin: 5px 0;
+}
