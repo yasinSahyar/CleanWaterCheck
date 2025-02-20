@@ -1,4 +1,3 @@
-//HomePage.tsx
 import React, { useState } from 'react';
 import InteractiveMap from './InteractiveMap';
 import WaterQualityReport from './WaterQualityReport';
@@ -17,6 +16,10 @@ interface PostalCodeData {
   lat: number;
   lng: number;
   waterQuality: string;
+  areasServed: string;
+  populationServed: number;
+  contaminantCount: number;
+  violationCount: number;
 }
 
 const HomePage: React.FC = () => {
@@ -26,6 +29,7 @@ const HomePage: React.FC = () => {
   const [selectedLocation, setSelectedLocation] = useState<Location | null>(null);
   const [mapCenter, setMapCenter] = useState<[number, number]>([60.1699, 24.9384]); // Default to Helsinki
   const [mapZoom, setMapZoom] = useState<number>(8); // Default zoom level
+
 
   // List of Finland's most populous cities with postal codes
   const mostPopulousCities = [
@@ -98,8 +102,28 @@ const HomePage: React.FC = () => {
 
       {results && (
         <div className="results">
-          <h2>Results for {results.city} ({results.postalCode})</h2>
+          <h2>Public Water Utilities in {results.city} ({results.postalCode})</h2>
           <p><strong>Water Quality:</strong> {results.waterQuality}</p>
+          <table>
+            <thead>
+              <tr>
+                <th>Name</th>
+                <th>Areas Served</th>
+                <th>Population Served</th>
+                <th>Contaminant Count</th>
+                <th>Violation Count</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>{results.city} Water Utility</td>
+                <td>{results.areasServed}</td>
+                <td>{results.populationServed.toLocaleString()}</td>
+                <td>{results.contaminantCount}</td>
+                <td>{results.violationCount}</td>
+              </tr>
+            </tbody>
+          </table>
         </div>
       )}
 
