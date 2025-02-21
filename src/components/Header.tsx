@@ -1,17 +1,16 @@
 // src/components/Header.tsx
 import React from 'react';
+import { Link } from 'react-router-dom'; // Import Link for routing
+import './HomePage.css'; // Optional: Add CSS for styling
 
 const Header: React.FC = () => {
-    return (
-        <header>
-            <h1>CleanWaterCheck</h1>
-            <nav>
-                <a href="#report">Report Water Quality</a>
-                <a href="#map">Interactive Map</a>
-                <a href="#education">Education</a>
-            </nav>
-        </header>
-    );
+  return (
+    <header className="header">
+      <Link to="/" className="header-link">
+        <h1>CleanWaterCheck Finland</h1>
+      </Link>
+    </header>
+  );
 };
 
 export default Header;

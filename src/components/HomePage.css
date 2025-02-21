@@ -73,3 +73,145 @@ th, td {
 th {
   background-color: #f2f2f2;
 }
+
+/* src/components/About.css */
+.about-page {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.about-page h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.about-page h2 {
+  font-size: 2em;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.about-page p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.about-page a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.about-page a:hover {
+  text-decoration: underline;
+}
+
+/* src/components/Header.css */
+.header {
+  background-color: #3f93ec;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+.header-link {
+  text-decoration: none; /* Remove underline */
+  color: white; /* Set text color to white */
+}
+
+.header-link:hover {
+  color: #61dafb; /* Change color on hover */
+}
+
+
+/* src/components/Data.css */
+.data-page {
+  padding: 20px;
+  max-width: 800px;
+  margin: 0 auto 100px; /* Add 50px margin at the bottom */
+  text-align: left;
+}
+
+.data-page h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.data-page h2 {
+  font-size: 2em;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.data-page p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.data-page a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.data-page a:hover {
+  text-decoration: underline;
+}
+
+
+/* src/components/WhatsInTheWater.css */
+.whats-in-the-water-page {
+  padding: 20px;
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: left;
+}
+
+.whats-in-the-water-page h1 {
+  font-size: 2.5em;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+.whats-in-the-water-page h2 {
+  font-size: 2em;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.whats-in-the-water-page p {
+  font-size: 1.1em;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.whats-in-the-water-page table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 20px;
+}
+
+.whats-in-the-water-page th,
+.whats-in-the-water-page td {
+  border: 1px solid #ddd;
+  padding: 8px;
+  text-align: left;
+}
+
+.whats-in-the-water-page th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.whats-in-the-water-page a {
+  color: #007bff;
+  text-decoration: none;
+}
+
+.whats-in-the-water-page a:hover {
+  text-decoration: underline;
+}
