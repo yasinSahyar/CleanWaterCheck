@@ -1,30 +1,20 @@
-import axios from 'axios';
+import { WaterQualityData } from '../types';
 
-interface WaterQualityData {
-  stationId: string;
-  parameter: string;
-  value: number;
-  unit: string;
-  timestamp: string;
-}
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
 
-export const fetchWaterQuality = async (postalCode: string): Promise<WaterQualityData[]> => {
+export const fetchWaterQuality = async (stationId?: string, region?: string): Promise<WaterQualityData[]> => {
   try {
-    // Replace with the actual API endpoint and query parameters
-    const response = await axios.get(
-      `https://rajapinnat.ymparisto.fi/api/vesla/2.0/odata/WaterQualityData?$filter=PostalCode eq '${postalCode}'`
-    );
-
-    // Extract and return the relevant data
-    return response.data.value.map((item: any) => ({
-      stationId: item.StationId,
-      parameter: item.Parameter,
-      value: item.Value,
-      unit: item.Unit,
-      timestamp: item.Timestamp,
-    }));
+    const params = new URLSearchParams();
+    if (stationId) params.append('stationId', stationId);
+    if (region) params.append('region', region);
+    
+    const response = await fetch(`${API_URL}/water-quality?${params.toString()}`);
+    if (!response.ok) {
+      throw new Error('Failed to fetch water quality data');
+    }
+    return response.json();
   } catch (error) {
     console.error('Error fetching water quality data:', error);
-    throw new Error('Failed to fetch water quality data');
+    throw error;
   }
 };

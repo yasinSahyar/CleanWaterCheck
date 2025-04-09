@@ -1,415 +1,651 @@
 [
-    {
-      "postalCode": "00100",
-      "city": "Helsinki",
-      "lat": 60.1699,
-      "lng": 24.9384,
-      "waterQuality": "Excellent"
-    },
-    {
-      "postalCode": "02100",
-      "city": "Espoo",
-      "lat": 60.2055,
-      "lng": 24.6559,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "33100",
-      "city": "Tampere",
-      "lat": 61.4978,
-      "lng": 23.761,
-      "waterQuality": "Moderate"
-    },
-    {
-      "postalCode": "01300",
-      "city": "Vantaa",
-      "lat": 60.2941,
-      "lng": 25.0405,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "20100",
-      "city": "Turku",
-      "lat": 60.4518,
-      "lng": 22.2666,
-      "waterQuality": "Excellent"
-    },
-    {
-      "postalCode": "90100",
-      "city": "Oulu",
-      "lat": 65.0121,
-      "lng": 25.4651,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "40100",
-      "city": "Jyväskylä",
-      "lat": 62.2415,
-      "lng": 25.7209,
-      "waterQuality": "Moderate"
-    },
-    {
-      "postalCode": "15100",
-      "city": "Lahti",
-      "lat": 60.9827,
-      "lng": 25.6612,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "70100",
-      "city": "Kuopio",
-      "lat": 62.8924,
-      "lng": 27.677,
-      "waterQuality": "Excellent"
-    },
-    {
-      "postalCode": "28100",
-      "city": "Pori",
-      "lat": 61.4851,
-      "lng": 21.7975,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "53100",
-      "city": "Lappeenranta",
-      "lat": 61.0588,
-      "lng": 28.1887,
-      "waterQuality": "Moderate"
-    },
-    {
-      "postalCode": "65100",
-      "city": "Vaasa",
-      "lat": 63.096,
-      "lng": 21.6158,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "48100",
-      "city": "Kotka",
-      "lat": 60.4664,
-      "lng": 26.9458,
-      "waterQuality": "Excellent"
-    },
-    {
-      "postalCode": "80100",
-      "city": "Joensuu",
-      "lat": 62.6012,
-      "lng": 29.7636,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "13100",
-      "city": "Hämeenlinna",
-      "lat": 60.9965,
-      "lng": 24.4642,
-      "waterQuality": "Moderate"
-    },
-    {
-      "postalCode": "60100",
-      "city": "Seinäjoki",
-      "lat": 62.7905,
-      "lng": 22.8403,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "96100",
-      "city": "Rovaniemi",
-      "lat": 66.5039,
-      "lng": 25.7294,
-      "waterQuality": "Excellent"
-    },
-    {
-      "postalCode": "50100",
-      "city": "Mikkeli",
-      "lat": 61.6886,
-      "lng": 27.2723,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "24100",
-      "city": "Salo",
-      "lat": 60.3841,
-      "lng": 23.1249,
-      "waterQuality": "Moderate"
-    },
-    {
-      "postalCode": "06100",
-      "city": "Porvoo",
-      "lat": 60.3932,
-      "lng": 25.6653,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "67100",
-      "city": "Kokkola",
-      "lat": 63.8376,
-      "lng": 23.132,
-      "waterQuality": "Excellent"
-    },
-    {
-      "postalCode": "87100",
-      "city": "Kajaani",
-      "lat": 64.2273,
-      "lng": 27.7285,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "04400",
-      "city": "Järvenpää",
-      "lat": 60.4741,
-      "lng": 25.0899,
-      "waterQuality": "Moderate"
-    },
-    {
-      "postalCode": "05800",
-      "city": "Hyvinkää",
-      "lat": 60.6333,
-      "lng": 24.8667,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "01900",
-      "city": "Nurmijärvi",
-      "lat": 60.4641,
-      "lng": 24.8073,
-      "waterQuality": "Excellent"
-    },
-    {
-      "postalCode": "26100",
-      "city": "Rauma",
-      "lat": 61.1272,
-      "lng": 21.5113,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "08100",
-      "city": "Lohja",
-      "lat": 60.25,
-      "lng": 24.0667,
-      "waterQuality": "Moderate"
-    },
-    {
-      "postalCode": "04200",
-      "city": "Kerava",
-      "lat": 60.4034,
-      "lng": 25.105,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "45100",
-      "city": "Kouvola",
-      "lat": 60.8681,
-      "lng": 26.7042,
-      "waterQuality": "Excellent"
-    },
-    {
-      "postalCode": "55100",
-      "city": "Imatra",
-      "lat": 61.1719,
-      "lng": 28.7525,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "57100",
-      "city": "Savonlinna",
-      "lat": 61.8699,
-      "lng": 28.88,
-      "waterQuality": "Moderate"
-    },
-    {
-      "postalCode": "11100",
-      "city": "Riihimäki",
-      "lat": 60.7376,
-      "lng": 24.7773,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "94100",
-      "city": "Kemi",
-      "lat": 65.7354,
-      "lng": 24.5637,
-      "waterQuality": "Excellent"
-    },
-    {
-      "postalCode": "74100",
-      "city": "Iisalmi",
-      "lat": 63.5593,
-      "lng": 27.1907,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "68600",
-      "city": "Pietarsaari",
-      "lat": 63.6748,
-      "lng": 22.7026,
-      "waterQuality": "Moderate"
-    },
-    {
-      "postalCode": "44100",
-      "city": "Äänekoski",
-      "lat": 62.6012,
-      "lng": 25.7261,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "92100",
-      "city": "Raahe",
-      "lat": 64.6845,
-      "lng": 24.482,
-      "waterQuality": "Excellent"
-    },
-    {
-      "postalCode": "37600",
-      "city": "Valkeakoski",
-      "lat": 61.2676,
-      "lng": 24.0315,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "49400",
-      "city": "Hamina",
-      "lat": 60.5697,
-      "lng": 27.1979,
-      "waterQuality": "Moderate"
-    },
-    {
-      "postalCode": "30100",
-      "city": "Forssa",
-      "lat": 60.8146,
-      "lng": 23.6215,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "88600",
-      "city": "Sotkamo",
-      "lat": 64.1311,
-      "lng": 28.417,
-      "waterQuality": "Excellent"
-    },
-    {
-      "postalCode": "33470",
-      "city": "Ylöjärvi",
-      "lat": 61.5563,
-      "lng": 23.5966,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "62200",
-      "city": "Kauhava",
-      "lat": 63.1028,
-      "lng": 23.0714,
-      "waterQuality": "Moderate"
-    },
-    {
-      "postalCode": "16300",
-      "city": "Orimattila",
-      "lat": 60.8049,
-      "lng": 25.7296,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "76100",
-      "city": "Pieksämäki",
-      "lat": 62.3006,
-      "lng": 27.1333,
-      "waterQuality": "Excellent"
-    },
-    {
-      "postalCode": "03400",
-      "city": "Vihti",
-      "lat": 60.4167,
-      "lng": 24.3167,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "23500",
-      "city": "Uusikaupunki",
-      "lat": 60.8004,
-      "lng": 21.4084,
-      "waterQuality": "Moderate"
-    },
-    {
-      "postalCode": "03600",
-      "city": "Karkkila",
-      "lat": 60.5342,
-      "lng": 24.2098,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "62100",
-      "city": "Lapua",
-      "lat": 62.9694,
-      "lng": 23.0088,
-      "waterQuality": "Excellent"
-    },
-    {
-      "postalCode": "21100",
-      "city": "Naantali",
-      "lat": 60.4675,
-      "lng": 22.0244,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "98100",
-      "city": "Kemijärvi",
-      "lat": 66.7131,
-      "lng": 27.4306,
-      "waterQuality": "Moderate"
-    },
-    {
-      "postalCode": "04600",
-      "city": "Mäntsälä",
-      "lat": 60.6333,
-      "lng": 25.3167,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "93600",
-      "city": "Kuusamo",
-      "lat": 65.9646,
-      "lng": 29.1887,
-      "waterQuality": "Excellent"
-    },
-    {
-      "postalCode": "43100",
-      "city": "Saarijärvi",
-      "lat": 62.7056,
-      "lng": 25.2578,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "42700",
-      "city": "Keuruu",
-      "lat": 62.2592,
-      "lng": 24.7075,
-      "waterQuality": "Moderate"
-    },
-    {
-      "postalCode": "85500",
-      "city": "Nivala",
-      "lat": 63.9333,
-      "lng": 24.9667,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "93100",
-      "city": "Pudasjärvi",
-      "lat": 65.3833,
-      "lng": 27.0167,
-      "waterQuality": "Excellent"
-    },
-    {
-      "postalCode": "64100",
-      "city": "Kristiinankaupunki",
-      "lat": 62.2747,
-      "lng": 21.3758,
-      "waterQuality": "Good"
-    },
-    {
-      "postalCode": "88900",
-      "city": "Kuhmo",
-      "lat": 64.1333,
-      "lng": 29.5167,
-      "waterQuality": "Moderate"
-    }
-  ]
+  {
+    "postalCode": "00100",
+    "city": "Helsinki",
+    "lat": 60.1695,
+    "lng": 24.9354,
+    "waterQuality": "Good",
+    "areasServed": "Uusimaa",
+    "populationServed": 656250,
+    "contaminantCount": 8,
+    "violationCount": 3
+  },
+  {
+    "postalCode": "02100",
+    "city": "Espoo",
+    "lat": 60.2055,
+    "lng": 24.6559,
+    "waterQuality": "Good",
+    "areasServed": "Uusimaa",
+    "populationServed": 291439,
+    "contaminantCount": 5,
+    "violationCount": 2
+  },
+  {
+    "postalCode": "33100",
+    "city": "Tampere",
+    "lat": 61.4978,
+    "lng": 23.7610,
+    "waterQuality": "Moderate",
+    "areasServed": "Pirkanmaa",
+    "populationServed": 238140,
+    "contaminantCount": 7,
+    "violationCount": 3
+  },
+  {
+    "postalCode": "01300",
+    "city": "Vantaa",
+    "lat": 60.2941,
+    "lng": 25.0408,
+    "waterQuality": "Good",
+    "areasServed": "Uusimaa",
+    "populationServed": 234237,
+    "contaminantCount": 5,
+    "violationCount": 2
+  },
+  {
+    "postalCode": "20100",
+    "city": "Turku",
+    "lat": 60.4518,
+    "lng": 22.2666,
+    "waterQuality": "Excellent",
+    "areasServed": "Southwest Finland",
+    "populationServed": 195137,
+    "contaminantCount": 4,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "90100",
+    "city": "Oulu",
+    "lat": 65.0121,
+    "lng": 25.4651,
+    "waterQuality": "Excellent",
+    "areasServed": "North Ostrobothnia",
+    "populationServed": 209648,
+    "contaminantCount": 3,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "40100",
+    "city": "Jyväskylä",
+    "lat": 62.2426,
+    "lng": 25.7473,
+    "waterQuality": "Excellent",
+    "areasServed": "Central Finland",
+    "populationServed": 144473,
+    "contaminantCount": 2,
+    "violationCount": 0
+  },
+  {
+    "postalCode": "15100",
+    "city": "Lahti",
+    "lat": 60.9827,
+    "lng": 25.6615,
+    "waterQuality": "Excellent",
+    "areasServed": "Päijät-Häme",
+    "populationServed": 120093,
+    "contaminantCount": 2,
+    "violationCount": 0
+  },
+  {
+    "postalCode": "70100",
+    "city": "Kuopio",
+    "lat": 62.8924,
+    "lng": 27.6770,
+    "waterQuality": "Excellent",
+    "areasServed": "Northern Savonia",
+    "populationServed": 119249,
+    "contaminantCount": 3,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "28100",
+    "city": "Pori",
+    "lat": 61.4850,
+    "lng": 21.7972,
+    "waterQuality": "Good",
+    "areasServed": "Satakunta",
+    "populationServed": 84803,
+    "contaminantCount": 2,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "53100",
+    "city": "Lappeenranta",
+    "lat": 61.0587,
+    "lng": 28.1887,
+    "waterQuality": "Good",
+    "areasServed": "South Karelia",
+    "populationServed": 72922,
+    "contaminantCount": 3,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "65100",
+    "city": "Vaasa",
+    "lat": 63.0958,
+    "lng": 21.6158,
+    "waterQuality": "Good",
+    "areasServed": "Ostrobothnia",
+    "populationServed": 67588,
+    "contaminantCount": 3,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "48100",
+    "city": "Kotka",
+    "lat": 60.4664,
+    "lng": 26.9458,
+    "waterQuality": "Excellent",
+    "areasServed": "Kymenlaakso",
+    "populationServed": 52899,
+    "contaminantCount": 2,
+    "violationCount": 0
+  },
+  {
+    "postalCode": "80100",
+    "city": "Joensuu",
+    "lat": 62.6000,
+    "lng": 29.7634,
+    "waterQuality": "Excellent",
+    "areasServed": "North Karelia",
+    "populationServed": 77266,
+    "contaminantCount": 2,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "13100",
+    "city": "Hämeenlinna",
+    "lat": 60.9950,
+    "lng": 24.4643,
+    "waterQuality": "Good",
+    "areasServed": "Kanta-Häme",
+    "populationServed": 67922,
+    "contaminantCount": 2,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "60100",
+    "city": "Seinäjoki",
+    "lat": 62.7903,
+    "lng": 22.8405,
+    "waterQuality": "Excellent",
+    "areasServed": "South Ostrobothnia",
+    "populationServed": 64787,
+    "contaminantCount": 4,
+    "violationCount": 0
+  },
+  {
+    "postalCode": "96100",
+    "city": "Rovaniemi",
+    "lat": 66.5039,
+    "lng": 25.7294,
+    "waterQuality": "Excellent",
+    "areasServed": "Lapland",
+    "populationServed": 63032,
+    "contaminantCount": 4,
+    "violationCount": 1    
+  },
+  {
+    "postalCode": "50100",
+    "city": "Mikkeli",
+    "lat": 61.6886,
+    "lng": 27.2723,
+    "waterQuality": "Good",
+    "areasServed": "Southern Savonia",
+    "populationServed": 53781,
+    "contaminantCount": 3,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "24100",
+    "city": "Salo",
+    "lat": 60.3841,
+    "lng": 23.1249,
+    "waterQuality": "Moderate",
+    "areasServed": "Southwest Finland",
+    "populationServed": 51394,
+    "contaminantCount": 5,
+    "violationCount": 2
+  },
+  {
+    "postalCode": "06100",
+    "city": "Porvoo",
+    "lat": 60.3932,
+    "lng": 25.6653,
+    "waterQuality": "Good",
+    "areasServed": "Uusimaa",
+    "populationServed": 51394,
+    "contaminantCount": 4,
+    "violationCount": 2
+  },
+  {
+    "postalCode": "67100",
+    "city": "Kokkola",
+    "lat": 63.8376,
+    "lng": 23.132,
+    "waterQuality": "Excellent",
+    "areasServed": "Central Ostrobothnia",
+    "populationServed": 47570,
+    "contaminantCount": 2,
+    "violationCount": 0
+  },
+  {
+    "postalCode": "87100",
+    "city": "Kajaani",
+    "lat": 64.2273,
+    "lng": 27.7285,
+    "waterQuality": "Good",
+    "areasServed": "Kainuu",
+    "populationServed": 36943,
+    "contaminantCount": 3,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "04400",
+    "city": "Järvenpää",
+    "lat": 60.4741,
+    "lng": 25.0899,
+    "waterQuality": "Moderate",
+    "areasServed": "Uusimaa",
+    "populationServed": 43860,
+    "contaminantCount": 4,
+    "violationCount": 2
+  },
+  {
+    "postalCode": "05800",
+    "city": "Hyvinkää",
+    "lat": 60.6333,
+    "lng": 24.8667,
+    "waterQuality": "Good",
+    "areasServed": "Uusimaa",
+    "populationServed": 46558,
+    "contaminantCount": 5,
+    "violationCount": 3
+  },
+  {
+    "postalCode": "01900",
+    "city": "Nurmijärvi",
+    "lat": 60.4641,
+    "lng": 24.8073,
+    "waterQuality": "Excellent",
+    "areasServed": "Uusimaa",
+    "populationServed": 43895,
+    "contaminantCount": 4,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "26100",
+    "city": "Rauma",
+    "lat": 61.1272,
+    "lng": 21.5113,
+    "waterQuality": "Good",
+    "areasServed": "Satakunta",
+    "populationServed": 39960,
+    "contaminantCount": 5,
+    "violationCount": 2
+  },
+  {
+    "postalCode": "08100",
+    "city": "Lohja",
+    "lat": 60.25,
+    "lng": 24.0667,
+    "waterQuality": "Moderate",
+    "areasServed": "Uusimaa",
+    "populationServed": 46713,
+    "contaminantCount": 6,
+    "violationCount": 2
+  },
+  {
+    "postalCode": "04200",
+    "city": "Kerava",
+    "lat": 60.4034,
+    "lng": 25.105,
+    "waterQuality": "Good",
+    "areasServed": "Uusimaa",
+    "populationServed": 37960,
+    "contaminantCount": 7,
+    "violationCount": 4
+  },
+  {
+    "postalCode": "45100",
+    "city": "Kouvola",
+    "lat": 60.8681,
+    "lng": 26.7042,
+    "waterQuality": "Excellent",
+    "areasServed": "Kymenlaakso",
+    "populationServed": 35620,
+    "contaminantCount": 3,
+    "violationCount": 0
+  },
+  {
+    "postalCode": "55100",
+    "city": "Imatra",
+    "lat": 61.1719,
+    "lng": 28.7525,
+    "waterQuality": "Good",
+    "areasServed": "South Karelia",
+    "populationServed": 21678,
+    "contaminantCount": 2,
+    "violationCount": 0
+  },
+  {
+    "postalCode": "57100",
+    "city": "Savonlinna",
+    "lat": 61.8699,
+    "lng": 28.88,
+    "waterQuality": "Moderate",
+    "areasServed": "Southern Savonia",
+    "populationServed": 20628,
+    "contaminantCount": 3,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "11100",
+    "city": "Riihimäki",
+    "lat": 60.7376,
+    "lng": 24.7773,
+    "waterQuality": "Good",
+    "areasServed": "Kanta-Häme",
+    "populationServed": 21218,
+    "contaminantCount": 4,
+    "violationCount": 2
+  },
+  {
+    "postalCode": "94100",
+    "city": "Kemi",
+    "lat": 65.7354,
+    "lng": 24.5637,
+    "waterQuality": "Excellent",
+    "areasServed": "Lapland",
+    "populationServed": 32217,
+    "contaminantCount": 3,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "74100",
+    "city": "Iisalmi",
+    "lat": 63.5593,
+    "lng": 27.1907,
+    "waterQuality": "Good",
+    "areasServed": "Northern Savonia",
+    "populationServed": 31014,
+    "contaminantCount": 7,
+    "violationCount": 2
+  },
+  {
+    "postalCode": "68600",
+    "city": "Pietarsaari",
+    "lat": 63.6748,
+    "lng": 22.7026,
+    "waterQuality": "Moderate",
+    "areasServed": "Ostrobothnia",
+    "populationServed": 24440,
+    "contaminantCount": 5,
+    "violationCount": 2
+  },
+  {
+    "postalCode": "44100",
+    "city": "Äänekoski",
+    "lat": 62.6012,
+    "lng": 25.7261,
+    "waterQuality": "Good",
+    "areasServed": "Central Finland",
+    "populationServed": 22646,
+    "contaminantCount": 4,
+    "violationCount": 2
+  },
+  {
+    "postalCode": "92100",
+    "city": "Raahe",
+    "lat": 64.6845,
+    "lng": 24.482,
+    "waterQuality": "Excellent",
+    "areasServed": "North Ostrobothnia",
+    "populationServed": 30362,
+    "contaminantCount": 2,
+    "violationCount": 0
+  },
+  {
+    "postalCode": "37600",
+    "city": "Valkeakoski",
+    "lat": 61.2676,
+    "lng": 24.0315,
+    "waterQuality": "Good",
+    "areasServed": "Pirkanmaa",
+    "populationServed": 28610,
+    "contaminantCount": 3,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "49400",
+    "city": "Hamina",
+    "lat": 60.5697,
+    "lng": 27.1979,
+    "waterQuality": "Moderate",
+    "areasServed": "Kymenlaakso",
+    "populationServed": 29582,
+    "contaminantCount": 3,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "30100",
+    "city": "Forssa",
+    "lat": 60.8146,
+    "lng": 23.6215,
+    "waterQuality": "Good",
+    "areasServed": "Kanta-Häme",
+    "populationServed": 24335,
+    "contaminantCount": 4,
+    "violationCount": 2
+  },
+  {
+    "postalCode": "88600",
+    "city": "Sotkamo",
+    "lat": 64.1311,
+    "lng": 28.417,
+    "waterQuality": "Excellent",
+    "areasServed": "Kainuu",
+    "populationServed": 23208,
+    "contaminantCount": 3,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "33470",
+    "city": "Ylöjärvi",
+    "lat": 61.5563,
+    "lng": 23.5966,
+    "waterQuality": "Good",
+    "areasServed": "Pirkanmaa",
+    "populationServed": 33139,
+    "contaminantCount": 4,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "62200",
+    "city": "Kauhava",
+    "lat": 63.1028,
+    "lng": 23.0714,
+    "waterQuality": "Moderate",
+    "areasServed": "South Ostrobothnia",
+    "populationServed": 27258,
+    "contaminantCount": 3,
+    "violationCount": 0
+  },
+  {
+    "postalCode": "16300",
+    "city": "Orimattila",
+    "lat": 60.8049,
+    "lng": 25.7296,
+    "waterQuality": "Good",
+    "areasServed": "Päijät-Häme",
+    "populationServed": 24747,
+    "contaminantCount": 4,
+    "violationCount": 2
+  },
+  {
+    "postalCode": "76100",
+    "city": "Pieksämäki",
+    "lat": 62.3006,
+    "lng": 27.1333,
+    "waterQuality": "Excellent",
+    "areasServed": "Southern Savonia",
+    "populationServed": 22732,
+    "contaminantCount": 5,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "03400",
+    "city": "Vihti",
+    "lat": 60.4167,
+    "lng": 24.3167,
+    "waterQuality": "Good",
+    "areasServed": "Uusimaa",
+    "populationServed": 21425,
+    "contaminantCount": 5,
+    "violationCount": 2
+  },
+  {
+    "postalCode": "23500",
+    "city": "Uusikaupunki",
+    "lat": 60.8004,
+    "lng": 21.4084,
+    "waterQuality": "Moderate",
+    "areasServed": "Southwest Finland",
+    "populationServed": 24462,
+    "contaminantCount": 5,
+    "violationCount": 2
+  },
+  {
+    "postalCode": "03600",
+    "city": "Karkkila",
+    "lat": 60.5342,
+    "lng": 24.2098,
+    "waterQuality": "Good",
+    "areasServed": "Uusimaa",
+    "populationServed": 23258,
+    "contaminantCount": 4,
+    "violationCount": 2
+  },
+  {
+    "postalCode": "62100",
+    "city": "Lapua",
+    "lat": 62.9694,
+    "lng": 23.0088,
+    "waterQuality": "Excellent",
+    "areasServed": "South Ostrobothnia",
+    "populationServed": 20158,
+    "contaminantCount": 2,
+    "violationCount": 0
+  },
+  {
+    "postalCode": "21100",
+    "city": "Naantali",
+    "lat": 60.4675,
+    "lng": 22.0244,
+    "waterQuality": "Good",
+    "areasServed": "Southwest Finland",
+    "populationServed": 21911,
+    "contaminantCount": 5,
+    "violationCount": 3
+  },
+  {
+    "postalCode": "98100",
+    "city": "Kemijärvi",
+    "lat": 66.7131,
+    "lng": 27.4306,
+    "waterQuality": "Moderate",
+    "areasServed": "Lapland",
+    "populationServed": 25241,
+    "contaminantCount": 5,
+    "violationCount": 3
+  },
+  {
+    "postalCode": "04600",
+    "city": "Mäntsälä",
+    "lat": 60.6333,
+    "lng": 25.3167,
+    "waterQuality": "Good",
+    "areasServed": "Uusimaa",
+    "populationServed": 22970,
+    "contaminantCount": 4,
+    "violationCount": 2
+  },
+  {
+    "postalCode": "93600",
+    "city": "Kuusamo",
+    "lat": 65.9646,
+    "lng": 29.1887,
+    "waterQuality": "Excellent",
+    "areasServed": "Northern Ostrobothnia",
+    "populationServed": 23022,
+    "contaminantCount": 2,
+    "violationCount": 0
+  },
+  {
+    "postalCode": "43100",
+    "city": "Saarijärvi",
+    "lat": 62.7056,
+    "lng": 25.2578,
+    "waterQuality": "Good",
+    "areasServed": "Central Finland",
+    "populationServed": 21640,
+    "contaminantCount": 3,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "42700",
+    "city": "Keuruu",
+    "lat": 62.2592,
+    "lng": 24.7075,
+    "waterQuality": "Moderate",
+    "areasServed": "Central Finland",
+    "populationServed": 20540,
+    "contaminantCount": 3,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "85500",
+    "city": "Nivala",
+    "lat": 63.9333,
+    "lng": 24.9667,
+    "waterQuality": "Good",
+    "areasServed": "North Ostrobothnia",
+    "populationServed": 20418,
+    "contaminantCount": 4,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "93100",
+    "city": "Pudasjärvi",
+    "lat": 65.3833,
+    "lng": 27.0167,
+    "waterQuality": "Excellent",
+    "areasServed": "Northern Ostrobothnia",
+    "populationServed": 23028,
+    "contaminantCount": 5,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "64100",
+    "city": "Kristiinankaupunki",
+    "lat": 62.2747,
+    "lng": 21.3758,
+    "waterQuality": "Good",
+    "areasServed": "Ostrobothnia",
+    "populationServed": 19678,
+    "contaminantCount": 3,
+    "violationCount": 1
+  },
+  {
+    "postalCode": "88900",
+    "city": "Kuhmo",
+    "lat": 64.1333,
+    "lng": 29.5167,
+    "waterQuality": "Moderate",
+    "areasServed": "Kainuu",
+    "populationServed": 18047,
+    "contaminantCount": 2,
+    "violationCount": 0
+  }
+]
