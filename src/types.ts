@@ -29,3 +29,27 @@ export interface PostalCodeData {
   waterQuality: string;
   publicWaterUtilities?: PublicWaterUtility[];
 }
+
+export interface User {
+  id: string;
+  email: string;
+  role: 'customer' | 'admin';
+  name: string;
+  region: string;
+}
+
+export interface WaterReport {
+  id: string;
+  userId: string;
+  title: string;
+  description: string;
+  location: {
+    lat: number;
+    lng: number;
+    address: string;
+  };
+  images: string[];
+  status: 'pending' | 'in_progress' | 'resolved';
+  createdAt: Date;
+  updatedAt: Date;
+}

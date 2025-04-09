@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import InteractiveMap from './InteractiveMap';
-import WaterQualityReport from './WaterQualityReport';
+import { WaterQualityReportForm } from './WaterQualityReportForm';
 import Education from './Education';
 import postalCodes from '../data/postalCodes.json'; // Import postal code data
 import './HomePage.css';
@@ -79,8 +79,8 @@ const HomePage: React.FC = () => {
     console.log('Selected Location:', location);
   };
 
-  const handleReportSubmit = (report: { turbidity: string; odor: string; location: string }) => {
-    console.log('Submitted Report:', report);
+  const handleReportSubmit = (data: { turbidity: string; odor: string; location: string }) => {
+    console.log('Submitted Report:', data);
   };
 
   return (
@@ -145,7 +145,7 @@ const HomePage: React.FC = () => {
         </ul>
       </div>
 
-      <WaterQualityReport onSubmit={handleReportSubmit} />
+      <WaterQualityReportForm onSubmit={handleReportSubmit} />
       <Education />
     </div>
   );
