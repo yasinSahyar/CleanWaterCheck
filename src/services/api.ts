@@ -84,6 +84,25 @@ export const reportAPI = {
   },
   deleteReport: async (id: string) => {
     return baseAPI.delete(`/reports/${id}`);
+  },
+  uploadImage: async (reportId: string, image: File) => {
+    const formData = new FormData();
+    formData.append('image', image);
+    
+    const token = localStorage.getItem('token');
+    const response = await fetch(`${API_URL}/reports/${reportId}/images`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${token}`
+      },
+      body: formData
+    });
+    
+    if (!response.ok) {
+      throw new Error('Failed to upload image');
+    }
+    
+    return response.json();
   }
 };
 

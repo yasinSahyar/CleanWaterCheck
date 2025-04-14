@@ -6,10 +6,6 @@ const { testConnection } = require('./config/db');
 
 // Routes
 const authRoutes = require('./routes/auth');
-const userRoutes = require('./routes/users');
-const reportRoutes = require('./routes/reports');
-const stationRoutes = require('./routes/stations');
-const regionRoutes = require('./routes/regions');
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -23,10 +19,6 @@ testConnection();
 
 // API Routes
 app.use('/api/auth', authRoutes);
-app.use('/api/users', userRoutes);
-app.use('/api/reports', reportRoutes);
-app.use('/api/stations', stationRoutes);
-app.use('/api/regions', regionRoutes);
 
 // Production için statik dosyaları servis et
 if (process.env.NODE_ENV === 'production') {

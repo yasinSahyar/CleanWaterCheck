@@ -5,6 +5,9 @@ const mysql = require('mysql2/promise');
 const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const dotenv = require('dotenv');
+const multer = require('multer');
+const path = require('path');
+const fs = require('fs');
 
 // Load environment variables
 dotenv.config();
@@ -46,6 +49,39 @@ const verifyToken = (req, res, next) => {
     return res.status(401).json({ message: 'Invalid token' });
   }
 };
+
+// Multer middleware setup for file uploads
+const storage = multer.diskStorage({
+  destination: function (req, file, cb) {
+    const uploadDir = path.join(__dirname, 'uploads');
+    if (!fs.existsSync(uploadDir)) {
+      fs.mkdirSync(uploadDir, { recursive: true });
+    }
+    cb(null, uploadDir);
+  },
+  filename: function (req, file, cb) {
+    const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9);
+    const ext = path.extname(file.originalname);
+    cb(null, file.fieldname + '-' + uniqueSuffix + ext);
+  }
+});
+
+const upload = multer({ 
+  storage: storage,
+  limits: { fileSize: 5 * 1024 * 1024 }, // 5MB limit
+  fileFilter: function (req, file, cb) {
+    // Check file type
+    const filetypes = /jpeg|jpg|png|gif/;
+    const mimetype = filetypes.test(file.mimetype);
+    const extname = filetypes.test(path.extname(file.originalname).toLowerCase());
+    
+    if (mimetype && extname) {
+      return cb(null, true);
+    }
+    
+    cb(new Error('Only image files are allowed!'));
+  }
+});
 
 // ROUTES
 
@@ -187,13 +223,13 @@ app.get('/api/reports', verifyToken, async (req, res) => {
 
 app.post('/api/reports', verifyToken, async (req, res) => {
   try {
-    const { stationId, parameter, value, unit, region, status = 'pending', notes = '' } = req.body;
+    const { stationId, parameter, value, unit, region, address, status = 'pending', notes = '' } = req.body;
     const userId = req.user.id;
     
     // Insert report into database
     const [result] = await pool.query(
-      'INSERT INTO water_quality_reports (user_id, station_id, parameter, value, unit, region, status, notes, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, NOW())',
-      [userId, stationId, parameter, value, unit, region, status, notes]
+      'INSERT INTO water_quality_reports (user_id, station_id, parameter, value, unit, region, address, status, notes, created_at) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())',
+      [userId, stationId, parameter, value, unit, region, address, status, notes]
     );
     
     const reportId = result.insertId;
@@ -313,6 +349,37 @@ app.get('/api/regions', async (req, res) => {
     res.status(500).json({ message: 'Server error' });
   }
 });
+
+// Upload image for a report
+app.post('/api/reports/:reportId/images', verifyToken, upload.single('image'), async (req, res) => {
+  try {
+    const reportId = req.params.reportId;
+    
+    if (!req.file) {
+      return res.status(400).json({ message: 'No file uploaded' });
+    }
+    
+    // Relative path to the file
+    const filePath = `/uploads/${req.file.filename}`;
+    
+    // Insert image record into database
+    await pool.query(
+      'INSERT INTO report_images (report_id, file_path, uploaded_at) VALUES (?, ?, NOW())',
+      [reportId, filePath]
+    );
+    
+    res.status(201).json({
+      message: 'Image uploaded successfully',
+      filePath
+    });
+  } catch (error) {
+    console.error('Image upload error:', error);
+    res.status(500).json({ message: 'Server error during image upload' });
+  }
+});
+
+// Serve static files from the uploads directory
+app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 
 // Start server
 app.listen(PORT, () => {

@@ -1,27 +1,36 @@
-import { User, UserRegistrationData, UserLoginData, WaterQualityReport } from '../types/index';
+import { User, UserRegistrationData, UserLoginData } from '../types/index';
+import axios from 'axios';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+const BASE_URL = process.env.REACT_APP_API_URL || 'http://localhost:5000/api';
+
+const axiosInstance = axios.create({
+  baseURL: BASE_URL,
+  headers: {
+    'Content-Type': 'application/json',
+  },
+});
+
+// Request interceptor to add token
+axiosInstance.interceptors.request.use(
+  (config) => {
+    const token = localStorage.getItem('token');
+    if (token && config.headers) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
+    return config;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
 
 // MySQL veritabanına bağlanan servisleri içeren modül
 const mysqlService = {
-  // Kullanıcı işlemleri
   auth: {
     register: async (userData: UserRegistrationData): Promise<{ user: User; token: string }> => {
       try {
-        const response = await fetch(`${API_URL}/auth/register`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(userData)
-        });
-        
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || 'Kayıt başarısız oldu');
-        }
-        
-        return await response.json();
+        const response = await axiosInstance.post('/auth/register', userData);
+        return response.data as { user: User; token: string };
       } catch (error) {
         console.error('Kayıt hatası:', error);
         throw error;
@@ -30,20 +39,8 @@ const mysqlService = {
     
     login: async (credentials: UserLoginData): Promise<{ user: User; token: string }> => {
       try {
-        const response = await fetch(`${API_URL}/auth/login`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json'
-          },
-          body: JSON.stringify(credentials)
-        });
-        
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || 'Giriş başarısız oldu');
-        }
-        
-        return await response.json();
+        const response = await axiosInstance.post('/auth/login', credentials);
+        return response.data as { user: User; token: string };
       } catch (error) {
         console.error('Giriş hatası:', error);
         throw error;
@@ -52,29 +49,17 @@ const mysqlService = {
     
     getCurrentUser: async (): Promise<{ user: User }> => {
       try {
-        const token = localStorage.getItem('token');
-        if (!token) {
-          throw new Error('Kimlik doğrulama jetonu bulunamadı');
-        }
-        
-        const response = await fetch(`${API_URL}/auth/me`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          }
-        });
-        
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || 'Kullanıcı verisi alınamadı');
-        }
-        
-        return await response.json();
+        const response = await axiosInstance.get('/auth/me');
+        return response.data as { user: User };
       } catch (error) {
         console.error('Kullanıcı alma hatası:', error);
         throw error;
       }
+    },
+    
+    logOut: async () => {
+      localStorage.removeItem('token');
+      return true;
     }
   },
   
@@ -82,8 +67,7 @@ const mysqlService = {
   waterQualityReports: {
     getReports: async (filters?: any) => {
       try {
-        const token = localStorage.getItem('token');
-        let url = `${API_URL}/reports`;
+        let url = '/reports';
         
         if (filters) {
           const queryParams = new URLSearchParams();
@@ -98,20 +82,13 @@ const mysqlService = {
           }
         }
         
-        const response = await fetch(url, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          }
-        });
+        const response = await axiosInstance.get(url);
         
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || 'Raporlar alınamadı');
+        if (!response.data) {
+          throw new Error('Raporlar alınamadı');
         }
         
-        return await response.json();
+        return response.data;
       } catch (error) {
         console.error('Rapor alma hatası:', error);
         throw error;
@@ -120,22 +97,13 @@ const mysqlService = {
     
     addReport: async (reportData: any) => {
       try {
-        const token = localStorage.getItem('token');
-        const response = await fetch(`${API_URL}/reports`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify(reportData)
-        });
+        const response = await axiosInstance.post('/reports', reportData);
         
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || 'Rapor eklenemedi');
+        if (!response.data) {
+          throw new Error('Rapor eklenemedi');
         }
         
-        return await response.json();
+        return response.data;
       } catch (error) {
         console.error('Rapor ekleme hatası:', error);
         throw error;
@@ -144,22 +112,13 @@ const mysqlService = {
     
     updateReport: async (id: string, reportData: any) => {
       try {
-        const token = localStorage.getItem('token');
-        const response = await fetch(`${API_URL}/reports/${id}`, {
-          method: 'PUT',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify(reportData)
-        });
+        const response = await axiosInstance.put(`/reports/${id}`, reportData);
         
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || 'Rapor güncellenemedi');
+        if (!response.data) {
+          throw new Error('Rapor güncellenemedi');
         }
         
-        return await response.json();
+        return response.data;
       } catch (error) {
         console.error('Rapor güncelleme hatası:', error);
         throw error;
@@ -168,21 +127,13 @@ const mysqlService = {
     
     deleteReport: async (id: string) => {
       try {
-        const token = localStorage.getItem('token');
-        const response = await fetch(`${API_URL}/reports/${id}`, {
-          method: 'DELETE',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          }
-        });
+        const response = await axiosInstance.delete(`/reports/${id}`);
         
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || 'Rapor silinemedi');
+        if (!response.data) {
+          throw new Error('Rapor silinemedi');
         }
         
-        return await response.json();
+        return response.data;
       } catch (error) {
         console.error('Rapor silme hatası:', error);
         throw error;
@@ -194,8 +145,7 @@ const mysqlService = {
   stations: {
     getStations: async (filters?: any) => {
       try {
-        const token = localStorage.getItem('token');
-        let url = `${API_URL}/stations`;
+        let url = '/stations';
         
         if (filters) {
           const queryParams = new URLSearchParams();
@@ -210,20 +160,13 @@ const mysqlService = {
           }
         }
         
-        const response = await fetch(url, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          }
-        });
+        const response = await axiosInstance.get(url);
         
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || 'İstasyonlar alınamadı');
+        if (!response.data) {
+          throw new Error('İstasyonlar alınamadı');
         }
         
-        return await response.json();
+        return response.data;
       } catch (error) {
         console.error('İstasyon alma hatası:', error);
         throw error;
@@ -235,21 +178,13 @@ const mysqlService = {
   regions: {
     getRegions: async () => {
       try {
-        const token = localStorage.getItem('token');
-        const response = await fetch(`${API_URL}/regions`, {
-          method: 'GET',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          }
-        });
+        const response = await axiosInstance.get('/regions');
         
-        if (!response.ok) {
-          const errorData = await response.json();
-          throw new Error(errorData.message || 'Bölgeler alınamadı');
+        if (!response.data) {
+          throw new Error('Bölgeler alınamadı');
         }
         
-        return await response.json();
+        return response.data;
       } catch (error) {
         console.error('Bölge alma hatası:', error);
         throw error;

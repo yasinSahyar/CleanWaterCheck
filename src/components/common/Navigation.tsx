@@ -12,11 +12,11 @@ import {
   Container,
 } from '@mui/material';
 import { AccountCircle } from '@mui/icons-material';
-import { useFirebase } from '../../hooks/useFirebase';
+import { useMySQL } from '../../hooks/useMySQL';
 
 const Navigation: React.FC = () => {
   const navigate = useNavigate();
-  const { user, logOut } = useFirebase();
+  const { user, logOut } = useMySQL();
   const [anchorEl, setAnchorEl] = React.useState<null | HTMLElement>(null);
 
   const handleMenu = (event: React.MouseEvent<HTMLElement>) => {
@@ -57,7 +57,7 @@ const Navigation: React.FC = () => {
             CleanWaterCheck Finland
           </Typography>
           
-          <Box sx={{ display: 'flex' }}>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Button
               component={Link}
               to="/about"
@@ -88,7 +88,10 @@ const Navigation: React.FC = () => {
             </Button>
             
             {user ? (
-              <Box sx={{ display: 'flex', alignItems: 'center' }}>
+              <Box sx={{ display: 'flex', alignItems: 'center', ml: 2 }}>
+                <Typography sx={{ color: 'white', mr: 1 }}>
+                  {user.name}
+                </Typography>
                 <IconButton
                   size="large"
                   aria-label="account of current user"
