@@ -11,6 +11,9 @@ import Navigation from './components/common/Navigation';
 import LoadingScreen from './components/common/LoadingScreen';
 import { useMySQL } from './hooks/useMySQL';
 import HomePage from './components/HomePage';
+import About from './components/About';
+import Data from './components/Data';
+import WhatsInTheWater from './components/WhatsInTheWater';
 import './App.css';
 
 const PrivateRoute: React.FC<{ children: React.ReactNode; allowedRoles?: string[] }> = ({ 
@@ -67,9 +70,9 @@ const App: React.FC = () => {
                   </PrivateRoute>
                 }
               />
-              <Route path="/about" element={<div>About Page</div>} />
-              <Route path="/data" element={<div>Data Page</div>} />
-              <Route path="/water-info" element={<div>What's in the Water?</div>} />
+              <Route path="/about" element={<About />} />
+              <Route path="/data" element={<Data />} />
+              <Route path="/water-info" element={<WhatsInTheWater />} />
             </Routes>
           </main>
           <footer className="footer">
