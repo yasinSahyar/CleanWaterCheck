@@ -1,8 +1,6 @@
 import React, { useState, useRef } from 'react';
 import { useForm } from 'react-hook-form';
-import { useFirebase } from '../../hooks/useFirebase';
-import type { WaterQualityReport } from '../../types/index';
-import { Button, TextField, Box, Typography, CircularProgress } from '@mui/material';
+import { Button, TextField, Box, Typography, CircularProgress, Alert, Snackbar } from '@mui/material';
 import CloudUploadIcon from '@mui/icons-material/CloudUpload';
 
 interface WaterQualityReportFormData {
@@ -20,12 +18,12 @@ interface ReportFormProps {
 }
 
 export const ReportForm: React.FC<ReportFormProps> = ({ onSuccess }) => {
-  const { addReport, uploadImage } = useFirebase();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [error, setError] = useState<string | null>(null);
   const [selectedImage, setSelectedImage] = useState<File | null>(null);
+  const [showSuccess, setShowSuccess] = useState(false);
   const fileInputRef = useRef<HTMLInputElement>(null);
-  const { register, handleSubmit, formState: { errors } } = useForm<WaterQualityReportFormData>();
+  const { register, handleSubmit, formState: { errors }, reset } = useForm<WaterQualityReportFormData>();
 
   const getStatusForValue = (parameter: string, value: number): 'good' | 'fair' | 'poor' => {
     // Add your status calculation logic here
@@ -43,35 +41,62 @@ export const ReportForm: React.FC<ReportFormProps> = ({ onSuccess }) => {
   const onSubmit = async (data: WaterQualityReportFormData) => {
     try {
       setIsSubmitting(true);
-      const report = {
-        title: data.title,
-        stationId: data.stationId,
-        region: data.region,
-        address: data.address,
-        parameters: {
-          turbidity: {
-            value: parseFloat(data.turbidity),
-            unit: 'NTU',
-            status: getStatusForValue('turbidity', parseFloat(data.turbidity))
-          },
-          odor: {
-            value: parseFloat(data.odor),
-            unit: 'TON',
-            status: getStatusForValue('odor', parseFloat(data.odor))
-          }
+      setError(null);
+
+      // First, create the report
+      const response = await fetch('http://localhost:5000/api/reports', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${localStorage.getItem('token')}`
         },
-        notes: data.notes,
-        createdBy: '', // Will be set by the backend
-        status: 'pending' as 'pending' | 'reviewed' | 'resolved' | 'rejected' | 'draft' | 'published' | 'archived'
-      };
-      
-      const result = await addReport(report);
-      
-      // If there's an image to upload and we got a report ID
-      if (selectedImage && result && result.reportId) {
-        await uploadImage(result.reportId, selectedImage);
+        body: JSON.stringify({
+          title: data.title,
+          stationId: data.stationId,
+          region: data.region,
+          address: data.address,
+          turbidity: parseFloat(data.turbidity),
+          odor: parseFloat(data.odor),
+          notes: data.notes,
+          status: 'pending'
+        })
+      });
+
+      if (!response.ok) {
+        throw new Error('Failed to create report');
       }
+
+      const result = await response.json();
+
+      // If there's an image to upload and we got a report ID
+      if (selectedImage && result.reportId) {
+        const formData = new FormData();
+        formData.append('image', selectedImage);
+
+        const imageResponse = await fetch(`http://localhost:5000/api/reports/${result.reportId}/images`, {
+          method: 'POST',
+          headers: {
+            'Authorization': `Bearer ${localStorage.getItem('token')}`
+          },
+          body: formData
+        });
+
+        if (!imageResponse.ok) {
+          throw new Error('Failed to upload image');
+        }
+      }
+
+      // Show success message
+      setShowSuccess(true);
       
+      // Reset form
+      reset();
+      setSelectedImage(null);
+      if (fileInputRef.current) {
+        fileInputRef.current.value = '';
+      }
+
+      // Call onSuccess callback if provided
       onSuccess?.();
     } catch (error) {
       console.error('Error submitting report:', error);
@@ -87,8 +112,8 @@ export const ReportForm: React.FC<ReportFormProps> = ({ onSuccess }) => {
         Submit Water Quality Report
       </Typography>
 
-      <Box sx={{ display: 'flex', flexWrap: 'wrap', gap: 2 }}>
-        <Box sx={{ flex: '1 1 calc(50% - 8px)', minWidth: 280 }}>
+      <Box sx={{ display: 'grid', gridTemplateColumns: { xs: '1fr', md: '1fr 1fr' }, gap: 2 }}>
+        <Box>
           <TextField
             fullWidth
             label="Title"
@@ -99,7 +124,7 @@ export const ReportForm: React.FC<ReportFormProps> = ({ onSuccess }) => {
           />
         </Box>
 
-        <Box sx={{ flex: '1 1 calc(50% - 8px)', minWidth: 280 }}>
+        <Box>
           <TextField
             fullWidth
             label="Station ID"
@@ -110,7 +135,7 @@ export const ReportForm: React.FC<ReportFormProps> = ({ onSuccess }) => {
           />
         </Box>
 
-        <Box sx={{ flex: '1 1 calc(50% - 8px)', minWidth: 280 }}>
+        <Box>
           <TextField
             fullWidth
             label="Region"
@@ -121,7 +146,7 @@ export const ReportForm: React.FC<ReportFormProps> = ({ onSuccess }) => {
           />
         </Box>
 
-        <Box sx={{ flex: '1 1 calc(50% - 8px)', minWidth: 280 }}>
+        <Box>
           <TextField
             fullWidth
             label="Exact Address/Location"
@@ -133,7 +158,7 @@ export const ReportForm: React.FC<ReportFormProps> = ({ onSuccess }) => {
           />
         </Box>
 
-        <Box sx={{ flex: '1 1 calc(50% - 8px)', minWidth: 280 }}>
+        <Box>
           <TextField
             fullWidth
             label="Turbidity"
@@ -145,7 +170,7 @@ export const ReportForm: React.FC<ReportFormProps> = ({ onSuccess }) => {
           />
         </Box>
 
-        <Box sx={{ flex: '1 1 calc(50% - 8px)', minWidth: 280 }}>
+        <Box>
           <TextField
             fullWidth
             label="Odor"
@@ -157,7 +182,7 @@ export const ReportForm: React.FC<ReportFormProps> = ({ onSuccess }) => {
           />
         </Box>
 
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ gridColumn: '1 / -1' }}>
           <TextField
             fullWidth
             label="Notes"
@@ -169,7 +194,7 @@ export const ReportForm: React.FC<ReportFormProps> = ({ onSuccess }) => {
           />
         </Box>
 
-        <Box sx={{ width: '100%' }}>
+        <Box sx={{ gridColumn: '1 / -1' }}>
           <Typography variant="subtitle1" gutterBottom>
             Upload Photo Evidence
           </Typography>
@@ -200,21 +225,34 @@ export const ReportForm: React.FC<ReportFormProps> = ({ onSuccess }) => {
         </Box>
       </Box>
 
+      <Box sx={{ mt: 3, display: 'flex', justifyContent: 'center' }}>
+        <Button
+          type="submit"
+          variant="contained"
+          color="primary"
+          disabled={isSubmitting}
+          sx={{ minWidth: 200 }}
+        >
+          {isSubmitting ? <CircularProgress size={24} /> : 'Submit Report'}
+        </Button>
+      </Box>
+
       {error && (
-        <Typography color="error" sx={{ mt: 2 }}>
+        <Alert severity="error" sx={{ mt: 2 }}>
           {error}
-        </Typography>
+        </Alert>
       )}
 
-      <Button
-        type="submit"
-        variant="contained"
-        color="primary"
-        disabled={isSubmitting}
-        sx={{ mt: 3 }}
+      <Snackbar
+        open={showSuccess}
+        autoHideDuration={6000}
+        onClose={() => setShowSuccess(false)}
+        anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
       >
-        {isSubmitting ? <CircularProgress size={24} /> : 'Submit Report'}
-      </Button>
+        <Alert onClose={() => setShowSuccess(false)} severity="success" sx={{ width: '100%' }}>
+          Report submitted successfully!
+        </Alert>
+      </Snackbar>
     </Box>
   );
 }; 
