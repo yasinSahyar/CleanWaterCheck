@@ -172,6 +172,7 @@ export const useMySQL = () => {
     updateReport,
     deleteReport,
     getStations,
-    getRegions
+    getRegions,
+    token: localStorage.getItem('token')
   };
 }; 

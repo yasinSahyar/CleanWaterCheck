@@ -8,6 +8,7 @@ interface WaterQualityReportFormData {
   stationId: string;
   region: string;
   address: string;
+  postalCode: string;
   turbidity: string;
   odor: string;
   notes?: string;
@@ -55,6 +56,7 @@ export const ReportForm: React.FC<ReportFormProps> = ({ onSuccess }) => {
           stationId: data.stationId,
           region: data.region,
           address: data.address,
+          postalCode: data.postalCode,
           turbidity: parseFloat(data.turbidity),
           odor: parseFloat(data.odor),
           notes: data.notes,
@@ -155,6 +157,24 @@ export const ReportForm: React.FC<ReportFormProps> = ({ onSuccess }) => {
             helperText={errors.address?.message}
             margin="normal"
             placeholder="Enter the exact location where the issue was observed"
+          />
+        </Box>
+
+        <Box>
+          <TextField
+            fullWidth
+            label="Postal Code"
+            {...register('postalCode', { 
+              required: 'Postal code is required',
+              pattern: {
+                value: /^\d{5}$/,
+                message: 'Please enter a valid 5-digit postal code'
+              }
+            })}
+            error={!!errors.postalCode}
+            helperText={errors.postalCode?.message}
+            margin="normal"
+            placeholder="Enter 5-digit postal code (e.g., 00100)"
           />
         </Box>
 
