@@ -18,7 +18,7 @@ export const useMySQL = () => {
           setUser(userData);
         }
       } catch (err) {
-        console.error('Oturum kontrolü hatası:', err);
+        console.error('Session check error:', err);
         // Hata durumunda token'ı temizle
         localStorage.removeItem('token');
       } finally {
@@ -39,7 +39,7 @@ export const useMySQL = () => {
       setUser(response.user);
       return response;
     } catch (err: any) {
-      setError(err.message || 'Kayıt sırasında bir hata oluştu');
+      setError(err.message || 'Registration failed');
       throw err;
     } finally {
       setLoading(false);
@@ -57,7 +57,7 @@ export const useMySQL = () => {
       setUser(response.user);
       return response;
     } catch (err: any) {
-      setError(err.message || 'Giriş sırasında bir hata oluştu');
+      setError(err.message || 'Login failed');
       throw err;
     } finally {
       setLoading(false);
@@ -65,9 +65,15 @@ export const useMySQL = () => {
   };
 
   // Çıkış yap
-  const logout = () => {
-    localStorage.removeItem('token');
-    setUser(null);
+  const logOut = async () => {
+    try {
+      await mysqlService.auth.logOut();
+      setUser(null);
+      setError(null);
+    } catch (err: any) {
+      setError(err.message || 'Logout failed');
+      throw err;
+    }
   };
 
   // Su kalitesi raporlarını getir
@@ -160,12 +166,13 @@ export const useMySQL = () => {
     error,
     register,
     login,
-    logout,
+    logOut,
     getWaterQualityReports,
     addReport,
     updateReport,
     deleteReport,
     getStations,
-    getRegions
+    getRegions,
+    token: localStorage.getItem('token')
   };
 }; 

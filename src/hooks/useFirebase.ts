@@ -169,12 +169,11 @@ export const useFirebase = () => {
     }
   };
 
-  const uploadImage = async (file: File): Promise<string> => {
+  const uploadImage = async (reportId: string, image: File) => {
     try {
-      const storageRef = ref(storage, `reports/${Date.now()}_${file.name}`);
-      await uploadBytes(storageRef, file);
-      return await getDownloadURL(storageRef);
-    } catch (error) {
+      return await reportAPI.uploadImage(reportId, image);
+    } catch (error: any) {
+      setError(error.message || 'Failed to upload image');
       throw error;
     }
   };
