@@ -1,46 +1,115 @@
-# Getting Started with Create React App
+# CleanWaterCheck Finland
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## 🌐 Live Application
 
-## Available Scripts
+- **Frontend URL:** [https://users.metropolia.fi/~yasinsay/htcomnet/](https://users.metropolia.fi/~yasinsay/htcomnet/)
+- **GitHub Repository:** [https://github.com/yasinSahyar/CleanWaterCheck](https://github.com/yasinSahyar/CleanWaterCheck)
 
-In the project directory, you can run:
+---
 
-### `npm start`
+## 🖼️ UI Screenshots
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+| Homepage | City Search & Results | Contaminant Info | Report Form | Login/Register | About Page | User Reports |
+|----------|----------------------|------------------|-------------|----------------|------------|-------------|
+| ![Homepage](screenshots/home.png) | ![City Search](screenshots/search.png) | ![Contaminant Info](screenshots/water-info.png) | ![Report Form](screenshots/reportPage.png) | ![Login](screenshots/loginPage.png) | ![About](screenshots/aboutPage.png) | ![User Reports](screenshots/userReports.png) |
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+---
 
-### `npm test`
+## 🧩 Features & Functionality
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+✅ **Implemented features:**
+- Role-based user login and registration
+- Water quality reporting with map-based location selection
+- Interactive map showing all reports
+- Public water utility data by city/postal code
+- User-submitted reports with photo upload
+- Drinking water contaminant information
+- Simple, responsive UI (desktop optimized)
+- Admin moderation tools
 
-### `npm run build`
+🛠️ **Features suggested but not yet implemented:**
+- Like/favorite feature for posts
+- Better error messages and field validation
+- Full mobile support
+- More precise map markers
+- Real-time notifications for new reports
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+---
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## 🐞 Known Issues / Bugs
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- Login form sometimes fails on first attempt
+- Form fields don't always show validation errors clearly
+- Mobile layout needs improvement
+- All reports may appear under one map pin
 
-### `npm run eject`
+---
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+## 🧪 Testing
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Manual usability testing was conducted with 11 users aged 20–35.
+- Feedback included UI clarity and feature suggestions.
+- Testing results and analysis available in `/usability-testing/`
+- Test cases are in the `/tests` folder
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+---
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+## 🗃️ Database Schema
 
-## Learn More
+Example database structure:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- **Users:** id, email, password, role  
+- **Reports:** id, user_id, location, description, date, status, photo  
+- **Comments:** id, report_id, user_id, content, timestamp
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+![Database Diagram](screenshots/database.png)
+
+---
+
+## 📚 References and Resources
+
+- [React](https://reactjs.org/)
+- [Node.js](https://nodejs.org/)
+- [Express.js](https://expressjs.com/)
+- [MongoDB](https://mongodb.com/)
+- [Leaflet.js](https://leafletjs.com/) – for interactive maps
+- [Material-UI](https://mui.com/) – for UI components
+- [Formik](https://formik.org/) & [Yup](https://github.com/jquense/yup) – for forms and validation
+- [Traversy Media](https://www.youtube.com/@TraversyMedia)
+- [MDN Web Docs](https://developer.mozilla.org)
+
+---
+
+## 📦 Repository Structure
+
+```
+/frontend      # React frontend
+/backend       # Express backend
+/screenshots   # UI screenshots for documentation
+/diagrams      # Diagrams like database schema
+/tests         # Automated or manual test scripts
+/usability-testing # Usability test results and analysis
+```
+
+---
+
+## 📝 Authors
+
+Project developed by **Group 5** – Metropolia University of Applied Sciences  
+Course: Full Stack Web Development
+
+---
+
+## 📝 Project Description
+
+**CleanWaterCheck Finland** was developed to address the need for accessible, up-to-date information about drinking water quality in Finland.  
+The main goals of the project are:
+
+- To help residents and visitors easily check the quality and safety of their local water supply.
+- To allow users to report water quality issues and view reports from others in their area.
+- To centralize public water utility data and user feedback in one easy-to-use platform.
+- To raise awareness about water contaminants and promote community participation in environmental monitoring.
+
+By combining official data with community reports, CleanWaterCheck Finland empowers users to make informed decisions about their water and encourages transparency and accountability in water management.
+
+---
