@@ -187,7 +187,7 @@ app.get('/api/auth/me', verifyToken, async (req, res) => {
 });
 
 // Water quality reports routes
-app.get('/api/reports', verifyToken, async (req, res) => {
+app.get('/api/reports', async (req, res) => {
   try {
     let query = 'SELECT * FROM water_quality_reports';
     const params = [];
